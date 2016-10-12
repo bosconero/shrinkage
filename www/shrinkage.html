@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+<meta name="HandheldFriendly" content="True"> 
+ 
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/stylevapo.css">
+
+    <script language="javaScript" src="js/calcoli.js"></script>
+  <title>CALCULATION OF THE SHRINKAGE</title>
+
+  </head>
+  <body onload="init()">
+
+    <div id="contentapp">
+   <div id="intro"> 
+  <h1 class="titleindex">CALCULATION OF THE SHRINKAGE IN YOUNG CONCRETE</h1> <br>
+  <p class="introtext"> 
+The theoretical shrinkage is calculated for the first 12-36 hours when the floor is very vulnerable <br />
+The result means theoretical because are not known some of the concrete variable parameters (type of cement, aggregate/cement ratio) while it is presumed the climatic situation hoping remains constant for at least 36 hours. But the APP is useful to check the distance between the contraction joints and permit to operate with right distance.<br />
+For more information please read the  text on the calculation philosophy<br />
+</p> 
+
+  <button id="scendi" onclick="fineintro()" style="border:none;background-color:#fff;display:block;margin:0 auto;"><img src="img/btndwn.png" width="60" alt="scendi" /> </button>
+  </div>
+  <div id="pinserimento">
+    <div id="attenzione"></div>  
+  <div id="inserimento">
+  
+       <div class="ins">
+       <div class="titoloins">
+       <label>Concrete: Exposure class</label>
+       </div>
+       <div class="inputins"> 
+       <select id="classesp">
+       <option value="XC1">XC1</option>
+       <option value="XC2"> XC2 </option>
+       <option value="XC3"> XC3 </option>
+       <option value="XC4"> XC4 </option>
+       <option value="XF3"> XF3</option>
+       <option value="XF4">XF4</option>
+       </select>
+       </div>
+       </div>
+  
+       <div class="ins">
+       <div class="titoloins">
+      <label for="rck"> concrete compressive strength <b>N/mm<sup>2</sup> </b></label>
+       </div>
+       <div class="inputins"> 
+        <input type=number name="rck" id="rck" autofocus>
+       </div>
+       </div>
+       
+       <div class="ins">
+       <div class="titoloins">
+      <label for="digiucont">distance between joints in m </label>
+       </div>
+       <div class="inputins"> 
+      <input type=number name="digiucont" id="digiucont" >
+       </div>
+       </div>
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label for="umidita">relative humidity % </label>
+       </div>
+       <div class="inputins"> 
+       <input type=number name="umidita" id="umidita">
+       </div>
+       </div>
+       
+      
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label for="spesspav">floor thickness <b>cm</b> </label>
+       </div>
+       <div class="inputins"> 
+       <input type=number name="spesspav" id="spesspav"> 
+       </div>
+       </div>
+       
+      
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label >type of casting in work</label>
+       </div>
+       <div class="inputins"> 
+        <select id="tipogetto">
+        <option value="direct discharge"> direct discharge</option>
+        <option value="pumping concrete"> pumping concrete </option>
+        </select> 
+       </div>
+       </div>
+       <div class="insalone">
+       <div class="titoloins">
+       <label>soil or polyethylene sheet  </label>
+       </div>
+        <table>
+         <tr style="text-align:center;">
+       <td><input type="radio" name="barriera" id="barriera" value="yes" ></td><td>YES</td>
+       <td><input type="radio" name="barriera" id="barrierano" value="no" checked></td><td>NO </td></tr>
+   
+          </table>
+           
+     
+       </div>
+       
+       <div id="scelta">
+       <button class="bottonev" id="calcola" onclick="controllo()">Calculate</button>
+       <button class="bottoner" type="reset" value="Reset">Reset </button>
+       </div>
+       
+
+  </div>   
+ 
+
+                                                     <br /> 
+   
+ </div>                                                 
+<div id="risultati"> 
+ <br />
+<div id="risultaritiro">
+<h1>SHRINKAGE IN YOUNG CONCRETE</h1>                           
+<div id="boxalert">     </div>
+<div id="alert2"></div>
+
+</div>
+<div id="risultaaltro">
+<div id="moduloelastico"></div>      <br /><hr />
+<div id="resistenzaatrazione"></div><hr />
+<div id="resistenzamediaatrazione"></div>
+</div> 
+<div id="testotrazione"><p>The average tensile stress exceeds the tensile strength of concrete as is normal. This difference generates cracks in case of presence of structures which hinder the shrinkage movement and therefore is necessary to reduce all this obstacles.<br />
+
+The contraction joints will be dimensioned according to the shrinkage stress on the young concrete.<br />
+
+</p>
+</div>
+<br />
+<br />
+<div id="disclaimer"><p style="font:italic 10px Arial;color:#333; text-align:center;">The results are approximate and based on the information you entered. The authors are not responsible for any errors</p>
+</div>
+<div id="scelta2">
+ <button class="bottoner" id="ripeti" onclick="ripeti()" style="text-align:center">Repeat</button>
+ <button class="bottonev" id='inviamail' onclick="inviamail()" style="text-align:center;">Send</button>
+</div>
+
+ </div>
+</div>
+
+
+
+
+  </body>
+</html>

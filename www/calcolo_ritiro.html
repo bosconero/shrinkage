@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="it">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+<meta name="HandheldFriendly" content="True"> 
+ 
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/stylevapo.css">
+
+    <script language="javaScript" src="js/calcoli.js"></script>
+  <title>calcolo del ritiro</title>
+
+  </head>
+  <body onload="init()">
+
+    <div id="contentapp">
+   <div id="intro"> 
+  <h1 class="titleindex">CALCOLO DEL RITIRO 
+  DEL PAVIMENTO IN<br>CALCESTRUZZO GIOVANE IN FASE PLASTICA</h1> <br>
+  <p class="introtext"> 
+Il  ritiro teorico viene calcolato per le prime 12-36 ore in cui il pavimento e molto vulnerabile.<br /> 
+
+Il ritiro calcolato si intende teorico perche non sono noti alcuni parametri variabili del calcestruzzo (tipo di cemento, rapporto inerte/cemento)mentre viene presunta la situazione climatica sperando si mantenga costante per almeno 36 ore. Ma il calcolatore diventa un parametro utile per verificare la distanza tra i giunti di contrazione e poter operare di conseguenza.<br /> 
+
+Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calcolo<br />
+
+ 
+</p> 
+
+  <button id="scendi" onclick="fineintro()" style="border:none;background-color:#fff;display:block;margin:0 auto;"><img src="img/btndwn.png" width="60" alt="scendi" /> </button>
+  </div>
+  <div id="pinserimento">
+    <div id="attenzione"></div>  
+  <div id="inserimento">
+  
+       <div class="ins">
+       <div class="titoloins">
+       <label>Classe cls</label>
+       </div>
+       <div class="inputins"> 
+       <select id="classesp">
+       <option value="XC1">XC1</option>
+       <option value="XC2"> XC2 </option>
+       <option value="XC3"> XC3 </option>
+       <option value="XC4"> XC4 </option>
+       <option value="XF3"> XF3</option>
+       <option value="XF4">XF4</option>
+       </select>
+       </div>
+       </div>
+  
+       <div class="ins">
+       <div class="titoloins">
+      <label for="rck"> Rck N/mm<sup>2</sup> </label>
+       </div>
+       <div class="inputins"> 
+        <input type=number name="rck" id="rck" autofocus>
+       </div>
+       </div>
+       
+       <div class="ins">
+       <div class="titoloins">
+      <label for="digiucont">Dist. giunti in ml </label>
+       </div>
+       <div class="inputins"> 
+      <input type=number name="digiucont" id="digiucont" >
+       </div>
+       </div>
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label for="umidita">Umidita Rel.% </label>
+       </div>
+       <div class="inputins"> 
+       <input type=number name="umidita" id="umidita">
+       </div>
+       </div>
+       
+      
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label for="spesspav">Spessore pav <b>cm</b> </label>
+       </div>
+       <div class="inputins"> 
+       <input type=number name="spesspav" id="spesspav"> 
+       </div>
+       </div>
+       
+      
+       
+       <div class="ins">
+       <div class="titoloins">
+       <label >Tipo di getto</label>
+       </div>
+       <div class="inputins"> 
+        <select id="tipogetto">
+        <option value="diretto"> scarico diretto </option>
+        <option value="pompa"> con pompa </option>
+        </select> 
+       </div>
+       </div>
+       <div class="insalone">
+       <div class="titoloins">
+       <label>Sottofondo impermeabile o con telo di polietilene </label>
+       </div>
+        <table>
+         <tr>
+       <td><input type="radio" name="barriera" id="barriera" value="si" ></td><td>SI</td>
+       <td><input type="radio" name="barriera" id="barrierano" value="no" checked></td><td>NO </td></tr>
+   
+          </table>
+           
+     
+       </div>
+       
+       <div id="scelta">
+       <button class="bottonev" id="calcola" onclick="controllo()">Calcola</button>
+       <button class="bottoner" type="reset" value="Reset">Reset </button>
+       </div>
+       
+
+  </div>   
+ 
+
+                                                     <br /> 
+   
+ </div>                                                 
+<div id="risultati"> 
+ <br />
+<div id="risultaritiro">
+<h1>RITIRO</h1>                           
+<div id="boxalert">     </div>
+<div id="alert2"></div>
+
+</div>
+<div id="risultaaltro">
+<div id="moduloelastico"></div>      <br /><hr />
+<div id="resistenzaatrazione"></div><hr />
+<div id="resistenzamediaatrazione"></div>
+</div> 
+<div id="testotrazione"><p>La sollecitazione media a trazione &egrave; superiore alla resistenza a trazione del calcestruzzo, come &egrave; normale che sia.
+<br> Questa differenza genera delle fessurazioni in caso di presenza di spiccati in elevazione che contrastano le tensioni da ritiro.<br>
+Quindi &egrave; necessario ridurre il pi&ugrave; possibile ogni ostacolo al ritiro della piastra (chiusini, pilastri ecc...) e adottare i giusti presidi.<br>
+I giunti di contrazione andranno dimensionati in funzione del ritiro del calcestruzzo giovane.</p>
+</div>
+<br />
+<br />
+<div id="disclaimer"><p style="font:italic 10px Arial;color:#333; text-align:center;">Il calcolatore indica dei valori
+approssimativi basati sulle informazioni immesse. Gli autori non sono
+responsabili di eventuali inesattezze</p>
+</div>
+<div id="scelta2">
+ <button class="bottoner" id="ripeti" onclick="ripeti()" style="text-align:center">Ripeti</button>
+ <button class="bottonev" id='inviamail' onclick="inviamail()" style="text-align:center;">Invia</button>
+</div>
+
+ </div>
+</div>
+
+
+
+
+  </body>
+</html>
